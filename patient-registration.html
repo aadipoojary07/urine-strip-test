@@ -1,117 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patient Registration - Aura Springs Medical Center</title>
-<link rel="stylesheet" href="css/main.css">
-<style>
-  .container { max-width: 700px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Registration - Aura Springs Medical Center</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/registration.js"></script>
+
+    <style>
+        .container {
+            max-width: 700px;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            display: block;
+            margin-top: 4px;
+        }
+    </style>
 </head>
+
 <body id="top">
 
 <header class="site-header">
-  <img src="H1.png" alt="Aura Springs Medical Center logo">
-  <div class="brand-text fade-in">
-    <h1>Aura Springs Medical Center</h1>
-    <p>Accurate Diagnostics for Better Healthcare</p>
-  </div>
+    <img src="H1.png" alt="Aura Springs Medical Center logo">
+
+    <div class="brand-text fade-in">
+        <h1>Aura Springs Medical Center</h1>
+        <p>Accurate Diagnostics for Better Healthcare</p>
+    </div>
 </header>
 
 <nav class="site-nav">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle">
-  <div class="nav-inner">
-    <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">&#9776;</label>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="laboratory-tests.html">Laboratory Tests</a></li>
-      <li><a href="test-price-table.html">Health Packages</a></li>
-      <li><a href="patient-registration.html" class="active">Online Registration</a></li>
-      <li><a href="test-details.html">Reports</a></li>
-      <li><a href="index.html#contact">Contact Us</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="lab-map.html">Test Strip Map</a></li>
-      <li><a href="health-information.html">Health Info</a></li>
-      <li><a href="media.html">Awareness</a></li>
-    </ul>
-  </div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
+    <div class="nav-inner">
+
+        <label for="nav-toggle" class="nav-toggle-label">&#9776;</label>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="laboratory-tests.html">Laboratory Tests</a></li>
+            <li><a href="test-price-table.html">Health Packages</a></li>
+            <li><a href="patient-registration.html" class="active">Online Registration</a></li>
+            <li><a href="test-details.html">Reports</a></li>
+            <li><a href="index.html#contact">Contact Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="lab-map.html">Test Strip Map</a></li>
+            <li><a href="health-information.html">Health Info</a></li>
+            <li><a href="media.html">Awareness</a></li>
+        </ul>
+
+    </div>
 </nav>
 
 <div class="container fade-in">
-  <h2>Online Patient Registration</h2>
 
-  <form action="#" method="POST" class="form-card">
+    <h2>Online Patient Registration</h2>
 
-    <fieldset>
-      <legend>Personal Details</legend>
+    <form action="#" method="POST"
+          class="form-card"
+          onsubmit="return validateForm()" novalidate>
 
-      <label for="pname">Patient Name</label>
-      <input type="text" id="pname" name="pname" placeholder="Enter full name"
-             required autofocus>
+        <fieldset>
 
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age" placeholder="Age in years"
-             min="0" max="120" required>
+            <legend>Personal Details</legend>
 
-      <label>Gender</label>
-      <input type="radio" id="male" name="gender" value="Male">
-      <label for="male" class="inline-label">Male</label>
-      <input type="radio" id="female" name="gender" value="Female">
-      <label for="female" class="inline-label">Female</label>
-      <input type="radio" id="other" name="gender" value="Other">
-      <label for="other" class="inline-label">Other</label>
+            <label for="pname">Patient Name</label>
 
-      <label for="mobile">Mobile Number</label>
-      <input type="tel" maxlength="10" id="mobile" name="mobile" placeholder="10-digit mobile number"
-             pattern="[0-9]{10}" required>
+            <input type="text"
+            id="pname"
+            name="pname"
+            placeholder="Enter full name"
+            autofocus>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <span id="nameError" class="error"></span>
 
-      <label for="dob">Date of Birth</label>
-      <input type="date" id="dob" name="dob" required>
-    </fieldset>
+            <label>Gender</label>
 
-    <fieldset>
-      <legend>Test &amp; Appointment Details</legend>
+            <input type="radio"
+                   id="male"
+                   name="gender"
+                   value="Male">
 
-      <label for="test">Test Selection</label>
-      <select id="test" name="test" required>
-        <option value="">-- Select a test --</option>
-        <option value="CBC">Complete Blood Count (CBC)</option>
-        <option value="HbA1c">HbA1c</option>
-        <option value="LFT">Liver Function Test (LFT)</option>
-        <option value="KFT">Kidney Function Test (KFT)</option>
-        <option value="Thyroid">Thyroid Profile</option>
-      </select>
+            <label for="male" class="inline-label">Male</label>
 
-      <label for="appt-date">Preferred Appointment Date</label>
-      <input type="date" id="appt-date" name="appt-date" required>
+            <input type="radio"
+                   id="female"
+                   name="gender"
+                   value="Female">
 
-      <label>Sample Collection Preference</label>
-      <input type="radio" id="home-collect" name="collection" value="Home">
-      <label for="home-collect" class="inline-label">Home Collection</label>
-      <input type="radio" id="lab-collect" name="collection" value="Lab">
-      <label for="lab-collect" class="inline-label">Visit Laboratory</label>
+            <label for="female" class="inline-label">Female</label>
 
-      <label for="prescription">Upload Doctor Prescription</label>
-      <input type="file" id="prescription" name="prescription" accept=".pdf,.jpg,.jpeg,.png">
-    </fieldset>
+            <input type="radio"
+                   id="other"
+                   name="gender"
+                   value="Other">
 
-    <div class="btn-row">
-      <input type="submit" value="Register">
-      <input type="reset" value="Clear Form">
-    </div>
+            <label for="other" class="inline-label">Other</label>
 
-  </form>
+            <span id="genderError" class="error"></span>
+
+            <label for="blood-group">Blood Group</label>
+
+            <select id="blood-group"
+                    name="blood-group"
+                    required>
+
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+
+            </select>
+
+            <span id="bloodError" class="error"></span>
+
+            <label for="padd">Address</label>
+
+            <input type="text"
+                   id="padd"
+                   name="address"
+                   placeholder="Enter your Address"
+                   required>
+
+            <span id="addressError" class="error"></span>
+
+            <label for="mobile">Mobile Number</label>
+
+            <input type="tel"
+                   maxlength="10"
+                   id="mobile"
+                   name="mobile"
+                   placeholder="10-digit mobile number"
+                   required>
+
+            <span id="mobileError" class="error"></span>
+
+            <label for="email">Email</label>
+
+            <input type="email"
+                   id="email"
+                   name="email"
+                   placeholder="you@example.com"
+                   required>
+
+            <span id="emailError" class="error"></span>
+
+            <label for="dob">Date of Birth</label>
+
+            <input type="date"
+                   id="dob"
+                   name="dob"
+                   required>
+
+            <span id="dobError" class="error"></span>
+
+        </fieldset>
+
+        <fieldset>
+
+            <legend>Test &amp; Appointment Details</legend>
+
+            <label for="test">Test Selection</label>
+
+            <select id="test"
+                    name="test"
+                    required>
+
+                <option value="">-- Select a test --</option>
+                <option value="CBC">Complete Blood Count (CBC)</option>
+                <option value="HbA1c">HbA1c</option>
+                <option value="LFT">Liver Function Test (LFT)</option>
+                <option value="KFT">Kidney Function Test (KFT)</option>
+                <option value="Thyroid">Thyroid Profile</option>
+
+            </select>
+
+            <span id="testError" class="error"></span>
+
+            <label for="appt-date">Preferred Appointment Date</label>
+
+            <input type="date"
+                   id="appt-date"
+                   name="appt-date"
+                   required>
+
+            <span id="appointmentError" class="error"></span>
+
+            <label>Sample Collection Preference</label>
+
+            <input type="radio"
+                   id="home-collect"
+                   name="collection"
+                   value="Home">
+
+            <label for="home-collect" class="inline-label">
+                Home Collection
+            </label>
+
+            <input type="radio"
+                   id="lab-collect"
+                   name="collection"
+                   value="Lab">
+
+            <label for="lab-collect" class="inline-label">
+                Visit Laboratory
+            </label>
+
+            <label for="prescription">Upload Doctor Prescription</label>
+
+            <input type="file"
+                   id="prescription"
+                   name="prescription"
+                   accept=".pdf,.jpg,.jpeg,.png">
+
+        </fieldset>
+
+        <div class="btn-row">
+
+            <input type="submit" value="Register">
+            <input type="reset" value="Clear Form">
+
+        </div>
+
+    </form>
+
 </div>
 
 <footer class="site-footer">
-  <p>&copy; 2026 Aura Springs Medical Center. All rights reserved.</p>
+
+    <p>
+        &copy; 2026 Aura Springs Medical Center.
+        All rights reserved.
+    </p>
+
 </footer>
 
-<a href="#top" class="back-to-top" aria-label="Back to top">&uarr;</a>
+<a href="#top"
+   class="back-to-top"
+   aria-label="Back to top">&uarr;</a>
 
 </body>
 </html>
