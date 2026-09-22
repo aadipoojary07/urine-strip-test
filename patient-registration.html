@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Patient Registration - Aura Springs Medical Center</title>
 
     <link rel="stylesheet" href="css/main.css">
@@ -57,6 +56,7 @@
         </ul>
 
     </div>
+
 </nav>
 
 <div class="container fade-in">
@@ -65,7 +65,8 @@
 
     <form action="#" method="POST"
           class="form-card"
-          onsubmit="return validateForm()" novalidate>
+          onsubmit="return validateForm()"
+          novalidate>
 
         <fieldset>
 
@@ -74,12 +75,23 @@
             <label for="pname">Patient Name</label>
 
             <input type="text"
-            id="pname"
-            name="pname"
-            placeholder="Enter full name"
-            autofocus>
+                   id="pname"
+                   name="pname"
+                   placeholder="Enter full name"
+                   autofocus>
 
             <span id="nameError" class="error"></span>
+
+
+            <label for="patient-id">Patient ID</label>
+
+            <input type="text"
+                   id="patient-id"
+                   name="patient-id"
+                   placeholder="PAT-1234">
+
+            <span id="patientIdError" class="error"></span>
+
 
             <label>Gender</label>
 
@@ -90,12 +102,14 @@
 
             <label for="male" class="inline-label">Male</label>
 
+
             <input type="radio"
                    id="female"
                    name="gender"
                    value="Female">
 
             <label for="female" class="inline-label">Female</label>
+
 
             <input type="radio"
                    id="other"
@@ -105,6 +119,7 @@
             <label for="other" class="inline-label">Other</label>
 
             <span id="genderError" class="error"></span>
+
 
             <label for="blood-group">Blood Group</label>
 
@@ -126,6 +141,7 @@
 
             <span id="bloodError" class="error"></span>
 
+
             <label for="padd">Address</label>
 
             <input type="text"
@@ -135,6 +151,7 @@
                    required>
 
             <span id="addressError" class="error"></span>
+
 
             <label for="mobile">Mobile Number</label>
 
@@ -147,6 +164,7 @@
 
             <span id="mobileError" class="error"></span>
 
+
             <label for="email">Email</label>
 
             <input type="email"
@@ -156,6 +174,7 @@
                    required>
 
             <span id="emailError" class="error"></span>
+
 
             <label for="dob">Date of Birth</label>
 
@@ -168,9 +187,11 @@
 
         </fieldset>
 
+
         <fieldset>
 
             <legend>Test &amp; Appointment Details</legend>
+
 
             <label for="test">Test Selection</label>
 
@@ -189,6 +210,7 @@
 
             <span id="testError" class="error"></span>
 
+
             <label for="appt-date">Preferred Appointment Date</label>
 
             <input type="date"
@@ -197,6 +219,7 @@
                    required>
 
             <span id="appointmentError" class="error"></span>
+
 
             <label>Sample Collection Preference</label>
 
@@ -209,6 +232,7 @@
                 Home Collection
             </label>
 
+
             <input type="radio"
                    id="lab-collect"
                    name="collection"
@@ -217,6 +241,7 @@
             <label for="lab-collect" class="inline-label">
                 Visit Laboratory
             </label>
+
 
             <label for="prescription">Upload Doctor Prescription</label>
 
@@ -227,9 +252,11 @@
 
         </fieldset>
 
+
         <div class="btn-row">
 
             <input type="submit" value="Register">
+
             <input type="reset" value="Clear Form">
 
         </div>
@@ -237,6 +264,7 @@
     </form>
 
 </div>
+
 
 <footer class="site-footer">
 
@@ -246,6 +274,7 @@
     </p>
 
 </footer>
+
 
 <a href="#top"
    class="back-to-top"
